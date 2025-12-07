@@ -1,0 +1,49 @@
+THE NARRATIVE: "The Silence of 2026"
+Most B2B sites solve yesterday's problem (getting leads). You need to solve the future problem to create urgency now.
+
+The Hook (Headline): * Bad: "We help you get more leads."
+
+Masterpiece: "The Inbox is Dead. Long Live the Signal."
+
+The Story Arc:
+
+The Villain: The "Noise." By 2026, AI sales agents will generate 99% of all emails. Human buyers will block everything. The "Outbound Wasteland" is coming.
+
+The Guide: Symmetri isn't just a tool; it's a Signal Processor. It cuts through the AI noise to find the human pulse.
+
+The Stakes: "Adapt to Autonomous Revenue, or get filtered out."
+
+3. HYPER-DYNAMIC GAMIFICATION
+Don't let them just read. Make them play.
+
+The "Revenue Simulator" (Lead Magnet):
+
+Instead of a "Book Demo" button, build a "Run Simulation" module.
+
+Input: User types in their Target Market Size and Average Deal Value.
+
+Animation: The 3D Engine revs up. Numbers spin like a slot machine but with tactical precision.
+
+Output: A projection of their "Symmetri-Optimized Revenue."
+
+The Kicker: To "Download the Blueprint" of this simulation, they drop their email. You’ve just given them value (a forecast) before asking for anything.
+
+4. CODING & TECHNICAL EXECUTION (The Genius Level)
+Framework: Next.js (for SEO/Speed) + Three.js / React-Three-Fiber (for the 3D magic).
+
+Animation: GSAP (GreenSock) for scroll triggers. Elements shouldn't just "fade in." They should snap into place like Iron Man’s armor.
+
+Performance: Use GLSL shaders for the background effects. This runs on the GPU, meaning you can have thousands of moving particles without lagging the browser.
+
+Dynamic Personalization: If they come from LinkedIn, the site detects the referrer and changes the H1 to: "Ready to turn your LinkedIn network into revenue, [Company Name]?"
+
+5. THE "INVISIBLE EQUITY" SECTION
+This is where you hide the "boring" stuff (features) inside "exciting" stuff (benefits).
+
+Feature: Unified Inbox.
+
+Narrative Rewrite: "The Command Center." Show a UI mock-up that looks like a futuristic flight deck. Label it: One Interface. Total Control. Zero Context Switching.
+
+Feature: AI Writing.
+
+Narrative Rewrite: "Psych-Graphic Neural Nets." We don't just write emails; we mirror your prospect's psychological profile for maximum resonance.

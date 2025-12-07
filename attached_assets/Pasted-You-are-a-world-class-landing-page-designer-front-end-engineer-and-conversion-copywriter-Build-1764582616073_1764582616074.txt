@@ -1,0 +1,407 @@
+You are a world-class landing page designer, front-end engineer, and conversion copywriter.
+
+Build a single-page marketing site for **Symmetri Growth Labs**.
+
+Tone:
+- Maverick, confident, clear.
+- 9th–10th grade reading level.
+- No boardroom jargon. No fluff.
+- Feels like the future of sales, but simple to understand.
+
+Brand & Visual System:
+- Dark carbon-black background with a subtle 3D grid / “holodeck” floor.
+- Accent colors: vivid orange (#ff7a1a), cyan/teal (#38e8ff), warm yellow/gold (#ffc84d), soft gray cards.
+- Typeface: bold, modern sans-serif with strong weight contrast (like a mix of Satoshi / Inter / Space Grotesk style).
+- Visual motif: **chaos → symmetry**. Left side = noisy particles / signals, right side = ordered nodes and clean UI cards.
+- Layout must be fully responsive (desktop, tablet, mobile).
+
+Global Interaction & Animation:
+- Use scroll-triggered animations (IntersectionObserver, no heavy frameworks).
+- Elements should gently **fade up / slide in** from bottom or sides, with small delays to create rhythm.
+- Grid background has a slow parallax drift.
+- Small glowing “signal” orbs pulse and move subtly in the background, never blocking text.
+- Hover states on cards and buttons: soft glow, slight scale-up, subtle shadow.
+- Keep animations performant and respectful of prefers-reduced-motion.
+
+==================================================
+SECTION 1 – HERO: “AUTONOMOUS REVENUE ENGINE”
+==================================================
+
+Goal:
+Immediately communicate that Symmetri is a **Revenue OS** that unifies **outbound + ABM**, powered by multi-agent AI and human GTM strategy, running pipeline on autopilot.
+
+Layout:
+- Left: text + primary / secondary CTAs.
+- Right: animated **OS diagram** card cluster.
+- Background: 3D grid floor fading into darkness, with a cone of “scanning light” coming from the OS.
+
+Hero Copy:
+
+Small badge above headline:
+> ABM + Outbound. Unified.
+
+Main headline (two-line, very bold, mix of white and orange):
+> Autonomous Revenue Engine.  
+> Modern Sales Outreach Made Simple.
+
+Subhead:
+> Symmetri Growth Labs combines GTM strategy, a multi-agent Revenue OS, and STEALTH™ phone coaching to run your outbound and ABM motions on autopilot. Agents research, write, and reach out while your team focuses on real conversations.
+
+Two primary buttons:
+- CTA 1 (solid orange):
+  > Calculate Your Savings
+- CTA 2 (dark outline):
+  > See the OS in Action
+
+Under-headline confidence line in small muted text:
+> Built for B2B teams selling into complex buying committees across SaaS, Tech, and Enterprise services.
+
+Hero OS Diagram (right side):
+
+Create an animated diagram that visually explains the Symmetri Revenue OS:
+
+- Center: glowing circular node labeled **“Symmetri Revenue OS”**.
+- Orbiting modules (cards with small icons):
+  1. **Living Data & Signal Core**
+  2. **Autonomous Multi-Agent Platform**
+  3. **STEALTH™ Calling Layer**
+  4. **GTM Strategy & Control Room**
+
+- Lines connect each module back to the core, with small pulsing “data packets” traveling along the lines.
+- On hover or idle animation, individual modules slightly glow and show tiny micro-labels like:
+  - “ABM account maps”
+  - “Persona-level research”
+  - “Spam-safe call flows”
+  - “Next Best Action”
+
+Make this diagram reusable later on the page as well.
+
+==================================================
+SECTION 2 – THE AI PARADOX + GTM COLLAPSE
+==================================================
+
+This section sits directly under the hero, full width, with a slightly darker background band.
+
+Left side: 3 bold stats in large type.
+
+Stats (big white/orange numbers with small captions):
+- 2% – Average success rate of cold calls.
+- 2% – Average success rate of cold emails.
+- 80% – Buyers expect personalized outreach.
+
+Right side: text block, heading + 2 paragraphs.
+
+Heading:
+> AI was a game changer. Now it’s a problem.
+
+Body:
+> AI promised speed, scale, and smarter outreach. It delivered all of that—plus a flood of noise. Inboxes are full of robotic messages. LinkedIn is a wall of templates. Callers sound like scripts, not people.  
+> 
+> Prospects are tired. They ignore almost everything. Yet 80% still expect personalized outreach. The result: a paradox where more technology creates less connection.
+
+Below that, a subheading + short bullets:
+
+Subheading:
+> The 2025 GTM Collapse
+
+Three concise bullets:
+> • SDRs now need hundreds of touches to book a single meeting.  
+> • CRM data decays so fast that most “target lists” are already wrong.  
+> • ABM plans never reach their full potential because the data and outreach can’t keep up.
+
+Close with a one-line bridge:
+> To fix this, you don’t need more tools. You need a new operating system.
+
+==================================================
+SECTION 3 – INTRODUCING SYMMETRI REVENUE OS
+==================================================
+
+Background: subtle glow behind the OS diagram reused, slightly zoomed.
+
+Section heading:
+> Meet Symmetri Revenue OS
+
+Subhead:
+> A Smart Opportunity & Autonomous Revenue Accelerator that unifies ABM and outbound into one living system.
+
+Layout:
+Two rows:
+
+Row 1 – short explanation:
+> Instead of juggling point tools and burned-out SDRs, you get an operating system that keeps your data alive, watches the market for signals, and deploys agents that handle research, messaging, and outreach automatically.
+
+Row 2 – Four core pillars (cards):
+
+Card 1 – **Living Data & Signal Core**  
+Copy:
+> Your CRM becomes a living engine. We verify and enrich contacts, map buying committees, and monitor intent signals so your ABM and outbound plays always start from clean, current data.
+
+Card 2 – **Autonomous Multi-Agent Platform**  
+Copy:
+> A team of AI agents researches each account, drafts on-brand messages using your content, and runs coordinated outreach across email, LinkedIn, and other channels. From signal to “next best action,” everything is handled automatically.
+
+Card 3 – **STEALTH™ Calling Layer**  
+Copy:
+> Phone outreach is scanned by AI long before a human picks up. Our STEALTH™ methodology and scripts train your team to beat spam detection, protect trust scores, and dramatically increase connect rates.
+
+Card 4 – **GTM Strategy & Control Room**  
+Copy:
+> Symmetri’s experts design the GTM strategy, build campaigns, and tune the OS. You get a single control room to see accounts, signals, conversations, and pipeline in one place.
+
+Animation:
+- When the section scrolls into view, the OS diagram from the hero subtly expands and the four pillar cards animate out from the center with gentle motion.
+
+==================================================
+SECTION 4 – 30-DAY ACTIVATION: HUMAN + AI SYMBIOSIS
+==================================================
+
+This replaces and upgrades the current “Human-AI Symbiosis” timeline.
+
+Heading:
+> From Chaos to Symmetry in 30 Days
+
+Subhead:
+> We don’t just hand you software. We install the Revenue OS, train your team, and fly alongside you until the system is running on autopilot.
+
+Visual:
+- Vertical or diagonal timeline with 6–7 steps, alternating left/right cards.
+- Each step has a small icon, title, and a one-sentence description.
+- Background grid continues but darker to keep focus on cards.
+
+Steps & copy (use these exact titles):
+
+1. **Deep Dive Evaluation**  
+   > We audit your ICP, ABM targets, sales process, tech stack, and team. No assumptions. Just a clear picture of where you are.
+
+2. **GTM Architecture**  
+   > Together we design a focused GTM strategy for both outbound and ABM, including targets, offers, and buying committee maps.
+
+3. **Self-Sustaining Data Engine**  
+   > We connect 70+ data sources to clean, enrich, and expand your account and contact data. Decay is replaced with a living, always-on data core.
+
+4. **Autonomous Multi-Agent Platform**  
+   > We configure the agents that research accounts, pull from your content, and trigger the next best action whenever a signal fires or a real person responds—so qualified meetings get booked 24/7 on autopilot.
+
+5. **Tech & Voice Layer**  
+   > We wire in your calling stack, email domains, and LinkedIn presence, making sure every channel is aligned and ready for agent hand-off.
+
+6. **STEALTH™ Coaching & Co-Execution**  
+   > We run live outbound with your SDRs, demonstrating STEALTH™ call flows and message reframes that avoid spam labels and raise connection rates.
+
+7. **Autopilot Handoff**  
+   > Once the system is stable, agents and signals handle the heavy lifting. Your team focuses on high-value conversations. We stay available as your Growth OS partner.
+
+Animations:
+- Cards slide in sequentially as the user scrolls down the timeline.
+- A subtle glowing “signal” travels along the spine of the timeline.
+
+==================================================
+SECTION 5 – “WE PROCESS THE NOISE” (STRIKE CHAIN + SIGNALS)
+==================================================
+
+This section merges the “We process the noise. You get the signal.” block with the “Symmetri Strike Chain” concept.
+
+Heading:
+> We process the noise. You get the signal.
+
+Subhead:
+> While most teams are blasting generic outreach, your OS is scanning the market, triangulating real buying intent, and acting in seconds.
+
+Layout:
+- Left: four small stat cards in a 2×2 grid.
+- Right: live-feeling log window showing “Processing Node…” / “MATCH” / “SCORE” style messages.
+
+Stats:
+- 147k+ Daily Signals Processed  
+- 0.8s Signal-to-Action  
+- 99%+ Data Accuracy (multi-source verified)  
+- 3.2× Pipeline Lift vs. client’s old playbooks
+
+Below stats, introduce the **Symmetri Strike Chain** – three horizontally aligned cards:
+
+1. **Target Acquisition**  
+   > We lock onto high-intent accounts using hiring, funding, technology, and engagement signals. You only chase accounts that are actually in motion.
+
+2. **Stealth Infiltration**  
+   > Multi-agent outreach surrounds the buying committee with on-point messages and stealth-safe calls, bypassing spam filters and gatekeepers.
+
+3. **Revenue Extraction**  
+   > When the time is right, agents and reps trigger direct, clear calls-to-action that lead to meetings and deals—not random check-ins.
+
+Animation:
+- Each Strike Chain card glows in sequence, like steps in a mission.
+- A thin line with small moving dots connects card 1 → 2 → 3.
+
+==================================================
+SECTION 6 – DATA ENGINE + TRIANGULATION
+==================================================
+
+Two-part section.
+
+Part A – Living Data Engine
+
+Heading:
+> Static data is dead. Meet the Living Engine.
+
+Copy:
+> Your CRM decays by up to 30% every year. Symmetri installs a self-healing data core that verifies contacts, fills in missing roles, and keeps ABM account maps accurate day and night.
+
+Stats under the copy:
+- 75+ Data Providers  
+- 24/7 Auto-Healing  
+- 30% Annual Decay Fixed
+
+Right side visual:
+- Card stack representing a CRM contact list where rows show “Updated” badges sliding in next to names, job titles changing, and one bad contact row marked with a subtle red “Invalid” and removed.
+
+Part B – Triangulation
+
+Sub-heading:
+> We don’t guess. We triangulate.
+
+Body:
+> Instead of guessing who to email this week, the OS watches signals across LinkedIn, intent tools, firmographic changes, and your own engagement data. When a buying window opens, agents know who to contact, on which channel, with what message.
+
+Three mini-cards:
+- **Alert** – “Champion promoted or moved.”  
+- **Signal** – “New funding or strategic initiative announced.”  
+- **Intent** – “Competitor contract at risk / tool removed.”
+
+==================================================
+SECTION 7 – STEALTH™ PROTOCOL
+==================================================
+
+This section should feel like a special “terminal” interface.
+
+Heading:
+> Protocol: S.T.E.A.L.T.H.™
+
+Sub-heading:
+> Most calls are scored by AI before a human ever hears you. We engineered the first anti-detection protocol.
+
+One-sentence value line:
+> Protect your phone trust scores, avoid “Spam Likely” labels, and raise connect rates without sounding like a robot.
+
+Layout:
+- Large terminal-style card with:
+  - Input text area labelled “Your current opener or script”.
+  - A “Scan Script” button that, when clicked, runs a fake diagnostic and shows:
+    - “AI Scanner Result: PASSED – AI Invisible” or “FAILED – High Detection Risk”.
+  - Below: a button “Apply STEALTH™ Reframing”.
+
+- Under the main panel: three small “Casualty Report” cards:
+  1. Hang-Up Rate +70% – Cause: “Are you busy right now?”  
+  2. Spam Flag Probability +20% – Cause: “Guarantee / Free / Limited Time”.  
+  3. Meetings Booked –28% – Cause: “Just checking in…”
+
+Under that, a row of 7 small tiles S T E A L T H, lightly animated.
+
+==================================================
+SECTION 8 – BEFORE / AFTER: MANUAL VS AGENTIC
+==================================================
+
+Heading:
+> 2015 Playbooks vs. 2025 Agentic Operations
+
+Layout:
+Two side-by-side panels.
+
+Left panel title:
+> Manual Playbooks
+
+Bullets:
+> • Spray-and-pray emails  
+> • 3–7 day research cycles  
+> • SDRs buried in tabs and tools  
+> • Little to no ABM execution  
+> • Burnout and high turnover
+
+Right panel title:
+> Agentic Operations
+
+Bullets:
+> • Signal-driven targeting  
+> • Real-time “next best action”  
+> • Agents handle research + follow-up  
+> • ABM and outbound from one OS  
+> • SDRs focused on real conversations
+
+==================================================
+SECTION 9 – ROI CALCULATOR: AI AGENTS VS HUMAN CAPITAL
+==================================================
+
+Keep this section, but make the positioning clearer.
+
+Heading:
+> AI Agents vs. Human Capital
+
+Subhead:
+> See the real cost of manual outbound vs. an autonomous Revenue OS.
+
+Layout:
+- Left: calculator card with sliders:
+  - Team members doing outbound
+  - Average salary
+  - Hours per week on outbound
+
+- Right: summary box that estimates:
+  - Hours recovered per month
+  - Estimated meetings gained
+  - Potential outbound cost savings (%)
+
+Accompanying copy under the calculator:
+> Most teams save 60–85% on outbound labor while increasing meetings by 2–3× once the OS is fully live.
+
+==================================================
+SECTION 10 – EXECUTION PARTNERS, NOT JUST A TOOL
+==================================================
+
+Heading:
+> Not just a platform. Your Growth Execution Partners.
+
+Subhead:
+> Symmetri Growth Labs brings GTM operators, AI engineers, and STEALTH™ coaches into one team that builds and runs your Revenue OS with you.
+
+Four square cards:
+
+1. **GTM Strategy**  
+   > We go deep on your market, offers, and motion to design a funnel that matches how your buyers actually decide.
+
+2. **Autonomous Outreach Platform**  
+   > Multi-agent campaigns across email, LinkedIn, and phone, all orchestrated from one interface.
+
+3. **STEALTH™ Calling Methodology**  
+   > We train your team on calling patterns that avoid spam flags and keep conversations feeling human.
+
+4. **Living Data & Signal Core**  
+   > We keep your ABM and outbound campaigns powered by clean, current data and real-time market signals.
+
+==================================================
+SECTION 11 – FINAL CTA
+==================================================
+
+Heading:
+> Ready to build pipeline on autopilot?
+
+Subhead:
+> Get a 30-day activation plan that shows exactly how a Revenue OS, STEALTH™, and ABM-ready data engine can work for your team.
+
+Two buttons:
+- Primary: **Book a Strategy Session**
+- Secondary (ghost): **See a Live OS Walkthrough**
+
+Underneath, in very small text:
+> No pressure, no generic demo. We build a live view of how Symmetri Revenue OS would run your motion before you decide.
+
+==================================================
+CODING NOTES
+==================================================
+
+- Use semantic HTML5 sections.
+- Use CSS variables for colors and spacing.
+- Implement scroll animations with IntersectionObserver and CSS classes for fade-in / slide-up.
+- Make the OS diagram and STEALTH terminal feel interactive but keep JS light.
+- Ensure all text has strong contrast on the dark background.
+- Ensure mobile layout stacks sections vertically and keeps text readable (no tiny fonts).
+
+End of prompt.
