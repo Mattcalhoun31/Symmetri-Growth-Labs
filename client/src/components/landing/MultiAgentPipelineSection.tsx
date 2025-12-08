@@ -507,73 +507,25 @@ https://symmetrigrowth.com
           <PipelineProgress activeStep={activeStep} demoState={demoState} />
         </div>
         
-        <form onSubmit={handleSubmit} className={`animate-on-scroll ${isVisible ? "visible" : ""} delay-300`}>
-          <div className="p-6 rounded-2xl border border-white/20 bg-[#0a0a0a]">
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-              <div>
-                <label className="text-xs mb-1.5 block text-white font-medium">Your Company</label>
-                <Input
-                  placeholder="e.g., Symmetri"
-                  value={formData.yourCompany}
-                  onChange={(e) => setFormData(prev => ({ ...prev, yourCompany: e.target.value }))}
-                  className="bg-[#050505] border-white/20 text-white placeholder:text-white/30 focus:border-[#FF8C00]"
-                  data-testid="input-your-company"
-                />
-              </div>
-              <div>
-                <label className="text-xs mb-1.5 block text-white font-medium">What You Sell</label>
-                <Input
-                  placeholder="e.g., AI sales platform"
-                  value={formData.yourProduct}
-                  onChange={(e) => setFormData(prev => ({ ...prev, yourProduct: e.target.value }))}
-                  className="bg-[#050505] border-white/20 text-white placeholder:text-white/30 focus:border-[#FF8C00]"
-                  data-testid="input-your-product"
-                />
-              </div>
-              <div>
-                <label className="text-xs mb-1.5 block text-white font-medium">Target Persona</label>
-                <Input
-                  placeholder="e.g., VP of Sales"
-                  value={formData.targetPersona}
-                  onChange={(e) => setFormData(prev => ({ ...prev, targetPersona: e.target.value }))}
-                  className="bg-[#050505] border-white/20 text-white placeholder:text-white/30 focus:border-[#FF8C00]"
-                  data-testid="input-target-persona"
-                />
-              </div>
-              <div>
-                <label className="text-xs mb-1.5 block text-white font-medium">Prospect Company</label>
-                <Input
-                  placeholder="e.g., Salesforce"
-                  value={formData.prospectCompany}
-                  onChange={(e) => setFormData(prev => ({ ...prev, prospectCompany: e.target.value }))}
-                  className="bg-[#050505] border-white/20 text-white placeholder:text-white/30 focus:border-[#FF8C00]"
-                  data-testid="input-prospect-company"
-                />
-              </div>
-            </div>
-            
-            <div className="flex justify-center">
-              <Button
-                type="submit"
-                disabled={!isValid || demoState === "generating"}
-                className="bg-gradient-to-r from-[#FF8C00] to-[#E65C00] hover:from-[#FF9500] hover:to-[#FF8C00] text-white font-bold px-10 py-3 gap-2 text-base"
-                data-testid="button-run-pipeline"
-              >
-                {demoState === "generating" ? (
-                  <>
-                    <Loader2 className="w-5 h-5 animate-spin" />
-                    Running Agents...
-                  </>
-                ) : (
-                  <>
-                    <Zap className="w-5 h-5" />
-                    Run Pipeline
-                  </>
-                )}
+        <div className={`animate-on-scroll ${isVisible ? "visible" : ""} delay-300`}>
+          <div className="p-8 rounded-2xl border border-[#FF8C00]/30 bg-[#0a0a0a] text-center">
+            <Zap className="w-12 h-12 text-[#FF8C00] mx-auto mb-4" />
+            <h3 className="text-2xl font-bold text-white mb-3">Coming Soon</h3>
+            <p className="text-white/60 mb-6 max-w-md mx-auto">
+              Get real-time STEALTH™ messaging you can use immediately. Book a call to see it live.
+            </p>
+            <a 
+              href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0ckVvNHSjXkLDNM6ZNnXzmdrPWmmcOK8Tq-jyM7LDDic-PVLxkfmbMaSSz7DVffqU3CBYZ?gv=true"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button className="bg-gradient-to-r from-[#FF8C00] to-[#E65C00] hover:from-[#FF9500] hover:to-[#FF8C00] text-white font-bold px-10 py-3 gap-2 text-base">
+                <Zap className="w-5 h-5" />
+                Get Your Free GTM Diagnostic
               </Button>
-            </div>
+            </a>
           </div>
-        </form>
+        </div>
         
         {result && demoState === "complete" && (
           <div className={`animate-on-scroll ${isVisible ? "visible" : ""}`}>
