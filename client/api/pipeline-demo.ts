@@ -128,10 +128,6 @@ Return ONLY valid JSON with this exact structure, no explanation or markdown:
   }
 }`;
 
-export const config = {
-  runtime: "edge",
-};
-
 export default async function handler(request: Request) {
   // Handle CORS
   if (request.method === "OPTIONS") {
