@@ -1,4 +1,9 @@
 {
   "buildCommand": "npm install && npx vite build",
-  "outputDirectory": "dist/public"
+  "outputDirectory": "dist/public",
+  "functions": {
+    "api/pipeline-demo.ts": {
+      "runtime": "@vercel/edge"
+    }
+  }
 }
