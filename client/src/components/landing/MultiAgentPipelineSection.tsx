@@ -340,7 +340,7 @@ export function MultiAgentPipelineSection() {
 
   const pipelineMutation = useMutation({
     mutationFn: async (data: typeof formData) => {
-      const response = await apiRequest("POST", "/api/pipeline-demo", data);
+      const response = await apiRequest("POST", "https://mattcalhoun31--b5ff9192daae11f09c9442dde27851f2.web.val.run", data);
       return response.json();
     },
     onSuccess: (data) => {
