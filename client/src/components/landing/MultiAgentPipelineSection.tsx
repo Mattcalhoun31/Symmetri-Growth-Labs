@@ -187,15 +187,15 @@ function ResultsDisplay({ result, onDownload }: { result: PipelineDemoResult; on
           
           <div className="space-y-4">
             <div>
-              <span className="text-[10px] text-[#FF8C00] font-bold tracking-wider">BUYING SIGNALS</span>
-              <div className="flex flex-wrap gap-2 mt-2">
-                {result.research.keyTriggers.slice(0, 3).map((trigger, i) => (
-                  <Badge key={i} className="bg-[#FF8C00]/10 border border-[#FF8C00]/30 text-[#FF8C00] text-[10px]">
-                    {trigger}
-                  </Badge>
-                ))}
-              </div>
-            </div>
+             <span className="text-[10px] text-[#FFE5B4] font-bold tracking-wider uppercase">KEY TRIGGERS</span>
+             <div className="flex flex-wrap gap-2 mt-3">
+               {result.research.keyTriggers.slice(0, 2).map((trigger, i) => (
+                 <Badge key={i} className="bg-gradient-to-r from-[#FF8C00] to-[#E65C00] text-white text-xs font-bold px-3 py-1.5 border-0">
+                  {trigger}
+                 </Badge>
+               ))}
+             </div>
+           </div>
             
             <div>
               <span className="text-[10px] text-[#FF8C00] font-bold tracking-wider">PAIN POINTS</span>
@@ -222,7 +222,7 @@ function ResultsDisplay({ result, onDownload }: { result: PipelineDemoResult; on
         </div>
         
         <div className="space-y-4">
-          <div className="p-5 rounded-xl bg-[#0a0a0a] border border-[#FF8C00]/30">
+          <div className="p-5 rounded-xl bg-[#0a0a0a]">
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-[#FF8C00]" />
@@ -239,7 +239,7 @@ function ResultsDisplay({ result, onDownload }: { result: PipelineDemoResult; on
             </div>
           </div>
           
-          <div className="p-5 rounded-xl bg-[#0a0a0a] border border-[#FF8C00]/30">
+          <div className="p-5 rounded-xl bg-[#0a0a0a]">
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
                 <Linkedin className="w-4 h-4 text-[#FF8C00]" />
@@ -309,11 +309,11 @@ function ResultsDisplay({ result, onDownload }: { result: PipelineDemoResult; on
           </div>
         </div>
         <Button 
-          onClick={onDownload}
-          className="bg-[#FF8C00] hover:bg-[#E65C00] text-black font-bold px-6 gap-2"
+         onClick={onDownload}
+         className="bg-gradient-to-r from-[#FF8C00] to-[#E65C00] hover:from-[#E65C00] hover:to-[#FF8C00] text-black font-bold px-12 py-6 text-lg gap-3 shadow-lg shadow-[#FF8C00]/50"
           data-testid="button-download-pack"
         >
-          <Download className="w-4 h-4" />
+         <Download className="w-6 h-6" />
           Download Full Pack
         </Button>
       </div>
