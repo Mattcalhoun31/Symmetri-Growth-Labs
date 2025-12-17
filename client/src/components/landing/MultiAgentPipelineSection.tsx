@@ -454,15 +454,6 @@ https://symmetrigrowth.com
         setEmailSubmitted(false);
       }, 3000);
       
-    } catch {
-      toast({
-        title: "Error",
-        description: "Failed to process. Please try again.",
-        variant: "destructive",
-      });
-    }
-  };
-
   const isValid = formData.yourCompany && formData.prospectCompany;
 
   return (
