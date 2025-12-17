@@ -380,28 +380,10 @@ export function MultiAgentPipelineSection() {
     pipelineMutation.mutate(formData);
   };
 
-  const handleDownload = () => {
-    setShowEmailGate(true);
-  };
-
-  const handleEmailSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) return;
+const handleDownload = () => {
+    if (!result) return;
     
-    try {
-      await apiRequest("POST", "/api/blueprint-download", { 
-        email, 
-        simulationData: { 
-          ...formData,
-          results: result,
-          type: "pipeline_activation_pack"
-        } 
-      });
-      
-      setEmailSubmitted(true);
-      
-      if (result) {
-        const packContent = `SYMMETRI GROWTH LABS - PIPELINE ACTIVATION PACK
+    const packContent = `SYMMETRI GROWTH LABS - PIPELINE ACTIVATION PACK
 ==============================================
 STEALTH™ Certified Outreach Assets
 
@@ -455,17 +437,17 @@ H - Human-Like Delivery Training
 Powered by Symmetri Growth Labs
 https://symmetrigrowth.com
 `;
-        
-        const blob = new Blob([packContent], { type: 'text/plain' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `Symmetri_Pipeline_Pack_${formData.prospectCompany.replace(/\s+/g, '_')}.txt`;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-      }
+    
+    const blob = new Blob([packContent], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `Symmetri_Pipeline_Pack_${formData.prospectCompany.replace(/\s+/g, '_')}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
       
       setTimeout(() => {
         setShowEmailGate(false);
