@@ -365,6 +365,20 @@ export function MultiAgentPipelineSection() {
     },
   });
 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.yourCompany || !formData.prospectCompany) return;
+    
+    setDemoState("generating");
+    setActiveStep(1);
+    
+    for (let i = 1; i <= 3; i++) {
+      await new Promise(resolve => setTimeout(resolve, 800));
+      setActiveStep(i + 1);
+    }
+    
+    pipelineMutation.mutate(formData);
+  };
   const handleEmailSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !result) return;
