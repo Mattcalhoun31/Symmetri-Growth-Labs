@@ -557,56 +557,6 @@ https://symmetrigrowth.com
           </div>
         )}
       </div>
-
-      <Dialog open={showEmailGate} onOpenChange={setShowEmailGate}>
-        <DialogContent className="bg-[#0a0a0a] border-[#FF8C00]/30 sm:max-w-md">
-          <DialogHeader>
-            <DialogTitle className="text-xl font-bold text-white flex items-center gap-2">
-              <Download className="w-5 h-5 text-[#FF8C00]" />
-              Download Pipeline Activation Pack
-            </DialogTitle>
-            <DialogDescription className="text-white/60">
-              Get your STEALTH™ certified outreach assets as a downloadable file.
-            </DialogDescription>
-          </DialogHeader>
-          
-          {emailSubmitted ? (
-            <div className="flex flex-col items-center py-8 gap-4" data-testid="download-success">
-              <div className="w-16 h-16 rounded-full bg-[#FF8C00]/20 flex items-center justify-center animate-pulse">
-                <CheckCircle className="w-8 h-8 text-[#FF8C00]" />
-              </div>
-              <p className="text-white font-bold text-lg">Success!</p>
-              <p className="text-white/60 text-sm">Your Pipeline Activation Pack is downloading...</p>
-            </div>
-          ) : (
-            <form onSubmit={handleEmailSubmit} className="space-y-4 pt-4">
-              <div>
-                <label className="text-sm text-white/70 block mb-2">Work Email</label>
-                <Input
-                  type="email"
-                  placeholder="you@company.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="bg-[#050505] border-white/20 text-white placeholder:text-white/30 focus:border-[#FF8C00]"
-                  data-testid="input-download-email"
-                  required
-                />
-              </div>
-              <Button 
-                type="submit"
-                className="w-full bg-gradient-to-r from-[#FF8C00] to-[#E65C00] hover:from-[#E65C00] hover:to-[#FF8C00] text-black font-bold"
-                data-testid="button-submit-download"
-              >
-                <Download className="w-4 h-4 mr-2" />
-                Download Pack
-              </Button>
-              <p className="text-xs text-white/40 text-center">
-                We'll also send you our GTM optimization guide.
-              </p>
-            </form>
-          )}
-        </DialogContent>
-      </Dialog>
     </section>
   );
 }
