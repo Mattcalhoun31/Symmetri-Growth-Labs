@@ -176,7 +176,7 @@ function ResultsDisplay({ result, onDownload }: { result: PipelineDemoResult; on
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
               <Brain className="w-5 h-5 text-[#FF8C00]" />
-              <span className="text-sm font-bold text-[#FF8C00]">GEMINI RESEARCH INTELLIGENCE</span>
+              <span className="text-sm font-bold text-[#FF8C00]">STEALTH RECON INTELLIGENCE</span>
             </div>
             <Badge variant="outline" className="border-[#FF8C00]/50 text-[#FF8C00] text-[10px]">
               AI-POWERED
@@ -365,25 +365,25 @@ export function MultiAgentPipelineSection() {
     },
   });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleEmailSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.yourCompany || !formData.prospectCompany) return;
+    if (!email || !result) return;
     
-    setDemoState("generating");
-    setActiveStep(1);
-    
-    for (let i = 1; i <= 3; i++) {
-      await new Promise(resolve => setTimeout(resolve, 800));
-      setActiveStep(i + 1);
-    }
-    
-    pipelineMutation.mutate(formData);
-  };
-
-const handleDownload = () => {
-    if (!result) return;
-    
-    const packContent = `SYMMETRI GROWTH LABS - PIPELINE ACTIVATION PACK
+    try {
+      // Send email + data back to Val Town to save in Airtable
+      await fetch("https://mattcalhoun31--b5ff9192daae11f09c9442dde27851f2.web.val.run", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          email: email,
+        })
+      });
+      
+      setEmailSubmitted(true);
+      
+      // Create the download
+      const packContent = `SYMMETRI GROWTH LABS - PIPELINE ACTIVATION PACK
 ==============================================
 STEALTH™ Certified Outreach Assets
 
@@ -392,7 +392,7 @@ Target: ${formData.targetPersona} at ${formData.prospectCompany}
 Product: ${formData.yourProduct}
 
 -------------------------------------------
-GEMINI RESEARCH INTELLIGENCE
+STEALTH RECON INTELLIGENCE
 -------------------------------------------
 ${result.research.companyOverview}
 
@@ -404,6 +404,9 @@ ${result.research.painPoints.map(p => `• ${p}`).join('\n')}
 
 Competitive Insights:
 ${result.research.competitiveInsights?.map(c => `• ${c}`).join('\n') || 'N/A'}
+
+Relevance:
+${result.research.relevance || 'N/A'}
 
 -------------------------------------------
 STEALTH™ EMAIL
@@ -420,39 +423,62 @@ ${result.linkedinMessage}
 -------------------------------------------
 STEALTH™ COLD CALL SCRIPT
 -------------------------------------------
+Opener:
+${result.stealthScript?.opener || ''}
+
+Bridge:
+${result.stealthScript?.bridge || ''}
+
+Value Hook:
+${result.stealthScript?.valueHook || ''}
+
+Close Question:
+${result.stealthScript?.closeQuestion || ''}
+
+FULL SCRIPT:
 ${result.stealthScript?.fullScript || ''}
 
 -------------------------------------------
 STEALTH™ METHODOLOGY
 -------------------------------------------
-S - Strategic Call Pattern Management
-T - Tonality Optimization for AI Scoring
-E - Eliminate Spam Trigger Language
-A - Authentic Conversation Techniques
-L - Language Reframing Mastery
-T - Timing and Volume Control
-H - Human-Like Delivery Training
+S - STRATEGIC: Use specific triggers, not generic openers
+T - TONALITY: Write conversationally, avoid robotic language  
+E - ELIMINATE: NO "just checking in", "hope this finds you well", "quick question"
+A - AUTHENTIC: Use pattern interrupts and peer references
+L - LANGUAGE: Lead with value, not permission-seeking
+T - TIMING: Get to the point immediately
+H - HUMAN-LIKE: Avoid AI-generated sounding text
 
 -------------------------------------------
 Powered by Symmetri Growth Labs
 https://symmetrigrowth.com
+Contact: ${email}
 `;
-    
-    const blob = new Blob([packContent], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `Symmetri_Pipeline_Pack_${formData.prospectCompany.replace(/\s+/g, '_')}.txt`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-  };
+      
+      const blob = new Blob([packContent], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `Symmetri_Pipeline_Pack_${formData.prospectCompany.replace(/\s+/g, '_')}.txt`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
       
       setTimeout(() => {
         setShowEmailGate(false);
         setEmailSubmitted(false);
       }, 3000);
+      
+    } catch (error) {
+      console.error("Failed to save lead:", error);
+      toast({
+        title: "Error",
+        description: "Failed to process. Please try again.",
+        variant: "destructive",
+      });
+    }
+  };
       
   const isValid = formData.yourCompany && formData.prospectCompany;
 
