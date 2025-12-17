@@ -376,7 +376,9 @@ export function MultiAgentPipelineSection() {
       await new Promise(resolve => setTimeout(resolve, 800));
       setActiveStep(i + 1);
     }
-    
+    const handleDownload = () => {
+    setShowEmailGate(true);
+  };
     pipelineMutation.mutate(formData);
   };
   const handleEmailSubmit = async (e: React.FormEvent) => {
