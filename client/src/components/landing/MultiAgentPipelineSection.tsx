@@ -384,24 +384,14 @@ export function MultiAgentPipelineSection() {
     setShowEmailGate(true);
   };
   const handleEmailSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email || !result) return;
+  e.preventDefault();
+  if (!email || !result) return;
+  
+  try {
+    setEmailSubmitted(true);
     
-    try {
-      // Send email + data back to Val Town to save in Airtable
-      await fetch("https://mattcalhoun31--b5ff9192daae11f09c9442dde27851f2.web.val.run", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...formData,
-          email: email,
-        })
-      });
-      
-      setEmailSubmitted(true);
-      
-      // Create the download
-      const packContent = `SYMMETRI GROWTH LABS - PIPELINE ACTIVATION PACK
+    // Create the download
+    const packContent = `SYMMETRI GROWTH LABS - PIPELINE ACTIVATION PACK
 ==============================================
 STEALTH™ Certified Outreach Assets
 
@@ -469,34 +459,34 @@ H - HUMAN-LIKE: Avoid AI-generated sounding text
 
 -------------------------------------------
 Powered by Symmetri Growth Labs
-https://symmetrigrowth.com
+https://symmetrilabs.com
 Contact: ${email}
 `;
-      
-      const blob = new Blob([packContent], { type: 'text/plain' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `Symmetri_Pipeline_Pack_${formData.prospectCompany.replace(/\s+/g, '_')}.txt`;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-      
-      setTimeout(() => {
-        setShowEmailGate(false);
-        setEmailSubmitted(false);
-      }, 3000);
-      
-    } catch (error) {
-      console.error("Failed to save lead:", error);
-      toast({
-        title: "Error",
-        description: "Failed to process. Please try again.",
-        variant: "destructive",
-      });
-    }
-  };
+    
+    const blob = new Blob([packContent], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `Symmetri_Pipeline_Pack_${formData.prospectCompany.replace(/\s+/g, '_')}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    
+    setTimeout(() => {
+      setShowEmailGate(false);
+      setEmailSubmitted(false);
+    }, 3000);
+    
+  } catch (error) {
+    console.error("Failed to create download:", error);
+    toast({
+      title: "Error",
+      description: "Failed to process. Please try again.",
+      variant: "destructive",
+    });
+  }
+};
       
   const isValid = formData.yourCompany && formData.prospectCompany;
 
