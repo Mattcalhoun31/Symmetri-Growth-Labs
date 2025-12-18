@@ -604,7 +604,6 @@ Contact: ${email}
     </section>
   );
 }
-</div>
 
       <Dialog open={showEmailGate} onOpenChange={setShowEmailGate}>
         <DialogContent className="bg-[#0a0a0a] border-[#FF8C00]/30 sm:max-w-md">
