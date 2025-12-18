@@ -508,13 +508,19 @@ Contact: ${email}
           <p className="text-xl text-white/60 max-w-2xl mx-auto">
             Four specialized agents working in sequence. Try it with your own company.
           </p>
+          <div className="mt-6 max-w-3xl mx-auto">
+  <p className="text-base text-white/80 leading-relaxed">
+    Enter your company details below. In 3 seconds, you'll receive AI-researched buyer intelligence, 
+    a spam-proof cold call script, and ready-to-use email and LinkedIn outreach—no editing required.
+  </p>
+</div>
         </div>
         
         <div className={`animate-on-scroll ${isVisible ? "visible" : ""} delay-100`}>
           <AgentSwarmVisualization activeStep={activeStep} isAnimating={demoState === "generating"} />
         </div>
         
-        <div className={`mb-8 animate-on-scroll ${isVisible ? "visible" : ""} delay-200`}>
+       <div className={`mb-8 animate-on-scroll ${isVisible ? "visible" : ""} delay-200`}>
           <PipelineProgress activeStep={activeStep} demoState={demoState} />
         </div>
         
@@ -560,9 +566,7 @@ Contact: ${email}
                   className="bg-[#050505] border-white/20 text-white placeholder:text-white/30 focus:border-[#FF8C00]"
                   data-testid="input-prospect-company"
                 />
-              </div>
-            </div>
-            
+                          
             <div className="flex justify-center">
               <Button
                 type="submit"
