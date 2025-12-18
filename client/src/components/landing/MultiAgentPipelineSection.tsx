@@ -375,7 +375,7 @@ export function MultiAgentPipelineSection() {
     for (let i = 1; i <= 3; i++) {
       await new Promise(resolve => setTimeout(resolve, 800));
       setActiveStep(i + 1);
-   }
+    }
     
     pipelineMutation.mutate(formData);
   };
@@ -383,15 +383,15 @@ export function MultiAgentPipelineSection() {
   const handleDownload = () => {
     setShowEmailGate(true);
   };
+
   const handleEmailSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  if (!email || !result) return;
-  
-  try {
-    setEmailSubmitted(true);
+    e.preventDefault();
+    if (!email || !result) return;
     
-    // Create the download
-    const packContent = `SYMMETRI GROWTH LABS - PIPELINE ACTIVATION PACK
+    try {
+      setEmailSubmitted(true);
+      
+      const packContent = `SYMMETRI GROWTH LABS - PIPELINE ACTIVATION PACK
 ==============================================
 STEALTH™ Certified Outreach Assets
 
@@ -462,31 +462,31 @@ Powered by Symmetri Growth Labs
 https://symmetrilabs.com
 Contact: ${email}
 `;
-    
-    const blob = new Blob([packContent], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `Symmetri_Pipeline_Pack_${formData.prospectCompany.replace(/\s+/g, '_')}.txt`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-    
-    setTimeout(() => {
-      setShowEmailGate(false);
-      setEmailSubmitted(false);
-    }, 3000);
-    
-  } catch (error) {
-    console.error("Failed to create download:", error);
-    toast({
-      title: "Error",
-      description: "Failed to process. Please try again.",
-      variant: "destructive",
-    });
-  }
-};
+      
+      const blob = new Blob([packContent], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `Symmetri_Pipeline_Pack_${formData.prospectCompany.replace(/\s+/g, '_')}.txt`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      
+      setTimeout(() => {
+        setShowEmailGate(false);
+        setEmailSubmitted(false);
+      }, 3000);
+      
+    } catch (error) {
+      console.error("Failed to create download:", error);
+      toast({
+        title: "Error",
+        description: "Failed to process. Please try again.",
+        variant: "destructive",
+      });
+    }
+  };
       
   const isValid = formData.yourCompany && formData.prospectCompany;
 
@@ -508,19 +508,20 @@ Contact: ${email}
           <p className="text-xl text-white/60 max-w-2xl mx-auto">
             Four specialized agents working in sequence. Try it with your own company.
           </p>
+          
           <div className="mt-6 max-w-3xl mx-auto">
-  <p className="text-base text-white/80 leading-relaxed">
-    Enter your company details below. In 3 seconds, you'll receive AI-researched buyer intelligence, 
-    a spam-proof cold call script, and ready-to-use email and LinkedIn outreach—no editing required.
-  </p>
-</div>
+            <p className="text-base text-white/80 leading-relaxed">
+              Enter your company details below. In 3 seconds, you'll receive AI-researched buyer intelligence, 
+              a spam-proof cold call script, and ready-to-use email and LinkedIn outreach—no editing required.
+            </p>
+          </div>
         </div>
         
         <div className={`animate-on-scroll ${isVisible ? "visible" : ""} delay-100`}>
           <AgentSwarmVisualization activeStep={activeStep} isAnimating={demoState === "generating"} />
         </div>
         
-       <div className={`mb-8 animate-on-scroll ${isVisible ? "visible" : ""} delay-200`}>
+        <div className={`mb-8 animate-on-scroll ${isVisible ? "visible" : ""} delay-200`}>
           <PipelineProgress activeStep={activeStep} demoState={demoState} />
         </div>
         
@@ -566,7 +567,9 @@ Contact: ${email}
                   className="bg-[#050505] border-white/20 text-white placeholder:text-white/30 focus:border-[#FF8C00]"
                   data-testid="input-prospect-company"
                 />
-                          
+              </div>
+            </div>
+            
             <div className="flex justify-center">
               <Button
                 type="submit"
@@ -589,7 +592,8 @@ Contact: ${email}
             </div>
           </div>
         </form>
-       {result && demoState === "complete" && (
+
+        {result && demoState === "complete" && (
           <div className={`animate-on-scroll ${isVisible ? "visible" : ""}`}>
             <ResultsDisplay result={result} onDownload={handleDownload} />
           </div>
