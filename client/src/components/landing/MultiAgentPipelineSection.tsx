@@ -595,15 +595,12 @@ Contact: ${email}
             </div>
           </div>
         </form>
-        {result && demoState === "complete" && (
+       {result && demoState === "complete" && (
           <div className={`animate-on-scroll ${isVisible ? "visible" : ""}`}>
             <ResultsDisplay result={result} onDownload={handleDownload} />
           </div>
         )}
       </div>
-    </section>
-  );
-}
 
       <Dialog open={showEmailGate} onOpenChange={setShowEmailGate}>
         <DialogContent className="bg-[#0a0a0a] border-[#FF8C00]/30 sm:max-w-md">
