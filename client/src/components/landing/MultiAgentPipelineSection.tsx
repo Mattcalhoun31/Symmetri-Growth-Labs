@@ -79,30 +79,6 @@ function AgentSwarmVisualization({ activeStep, isAnimating }: { activeStep: numb
           <Zap className="w-8 h-8 text-[rgba(200,120,50,0.9)]" />
         </div>
       </div>
-      
-      {pipelineSteps.map((step, i) => {
-        const angle = (i * 90 - 45) * (Math.PI / 180);
-        const x = 50 + (Math.cos(angle) * 30 + 30);
-        const y = 50 + (Math.sin(angle) * 23 + 23);
-        const Icon = step.icon;
-        
-        return (
-          <div 
-            key={step.id}
-            className="absolute"
-            style={{ 
-              left: `${x}%`, 
-              top: `${y}%`, 
-              transform: "translate(-50%, -50%)"
-            }}
-          >
-            <Icon 
-              className="w-5 h-5"
-              style={{ color: "rgba(200,120,50,0.9)" }}
-            />
-          </div>
-        );
-      })}
     </div>
   );
 }
@@ -339,7 +315,7 @@ export function MultiAgentPipelineSection() {
   });
 
   const pipelineMutation = useMutation({
-    mutationFn: async (data: typeof formData) => {
+    mutationFn: async (data: typeof formData & { email: string }) => {
       const response = await fetch("https://mattcalhoun31--b5ff9192daae11f09c9442dde27851f2.web.val.run", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -352,11 +328,13 @@ export function MultiAgentPipelineSection() {
         setResult(data.result);
         setDemoState("complete");
         setActiveStep(4);
+        setShowEmailGate(false);
       }
     },
     onError: () => {
       setDemoState("idle");
       setActiveStep(0);
+      setShowEmailGate(false);
       toast({
         title: "Error",
         description: "Failed to generate. Please try again.",
@@ -369,6 +347,15 @@ export function MultiAgentPipelineSection() {
     e.preventDefault();
     if (!formData.yourCompany || !formData.prospectCompany) return;
     
+    // Show email gate first
+    setShowEmailGate(true);
+  };
+
+  const handleEmailSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+    
+    // Now run the demo with email captured
     setDemoState("generating");
     setActiveStep(1);
     
@@ -377,21 +364,13 @@ export function MultiAgentPipelineSection() {
       setActiveStep(i + 1);
     }
     
-    pipelineMutation.mutate(formData);
+    pipelineMutation.mutate({ ...formData, email });
   };
 
   const handleDownload = () => {
-    setShowEmailGate(true);
-  };
-
-  const handleEmailSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email || !result) return;
+    if (!result) return;
     
-    try {
-      setEmailSubmitted(true);
-      
-      const packContent = `SYMMETRI GROWTH LABS - PIPELINE ACTIVATION PACK
+    const packContent = `SYMMETRI GROWTH LABS - PIPELINE ACTIVATION PACK
 ==============================================
 STEALTH™ Certified Outreach Assets
 
@@ -462,30 +441,16 @@ Powered by Symmetri Growth Labs
 https://symmetrilabs.com
 Contact: ${email}
 `;
-      
-      const blob = new Blob([packContent], { type: 'text/plain' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `Symmetri_Pipeline_Pack_${formData.prospectCompany.replace(/\s+/g, '_')}.txt`;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-      
-      setTimeout(() => {
-        setShowEmailGate(false);
-        setEmailSubmitted(false);
-      }, 3000);
-      
-    } catch (error) {
-      console.error("Failed to create download:", error);
-      toast({
-        title: "Error",
-        description: "Failed to process. Please try again.",
-        variant: "destructive",
-      });
-    }
+    
+    const blob = new Blob([packContent], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `Symmetri_Pipeline_Pack_${formData.prospectCompany.replace(/\s+/g, '_')}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
   };
       
   const isValid = formData.yourCompany && formData.prospectCompany;
@@ -502,7 +467,8 @@ Contact: ${email}
           
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
             <span className="text-white">Your </span>
-            <span className="text-ember-gradient">Revenue Swarm</span>
+            <span className="text-ember-gradient">GTM System</span>
+            <span className="text-white"> in 3 Seconds</span>
           </h2>
           
           <p className="text-xl text-white/60 max-w-2xl mx-auto">
@@ -604,47 +570,37 @@ Contact: ${email}
         <DialogContent className="bg-[#0a0a0a] border-[#FF8C00]/30 sm:max-w-md">
           <DialogHeader>
             <DialogTitle className="text-xl font-bold text-white flex items-center gap-2">
-              <Download className="w-5 h-5 text-[#FF8C00]" />
-              Download Pipeline Activation Pack
+              <Zap className="w-5 h-5 text-[#FF8C00]" />
+              See Your GTM System
             </DialogTitle>
             <DialogDescription className="text-white/60">
-              Get your STEALTH™ certified outreach assets as a downloadable file.
+              Enter your work email to generate your personalized STEALTH™ outreach assets.
             </DialogDescription>
           </DialogHeader>
           
-          {emailSubmitted ? (
-            <div className="flex flex-col items-center py-8 gap-4">
-              <div className="w-16 h-16 rounded-full bg-[#FF8C00]/20 flex items-center justify-center animate-pulse">
-                <CheckCircle className="w-8 h-8 text-[#FF8C00]" />
-              </div>
-              <p className="text-white font-bold text-lg">Success!</p>
-              <p className="text-white/60 text-sm">Your Pipeline Activation Pack is downloading...</p>
+          <form onSubmit={handleEmailSubmit} className="space-y-4 pt-4">
+            <div>
+              <label className="text-sm text-white/70 block mb-2">Work Email</label>
+              <Input
+                type="email"
+                placeholder="you@company.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="bg-[#050505] border-white/20 text-white placeholder:text-white/30 focus:border-[#FF8C00]"
+                required
+              />
             </div>
-          ) : (
-            <form onSubmit={handleEmailSubmit} className="space-y-4 pt-4">
-              <div>
-                <label className="text-sm text-white/70 block mb-2">Work Email</label>
-                <Input
-                  type="email"
-                  placeholder="you@company.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="bg-[#050505] border-white/20 text-white placeholder:text-white/30 focus:border-[#FF8C00]"
-                  required
-                />
-              </div>
-              <Button 
-                type="submit"
-                className="w-full bg-gradient-to-r from-[#FF8C00] to-[#E65C00] hover:from-[#E65C00] hover:to-[#FF8C00] text-black font-bold"
-              >
-                <Download className="w-4 h-4 mr-2" />
-                Download Pack
-              </Button>
-              <p className="text-xs text-white/40 text-center">
-                We'll also send you our GTM optimization guide.
-              </p>
-            </form>
-          )}
+            <Button 
+              type="submit"
+              className="w-full bg-gradient-to-r from-[#FF8C00] to-[#E65C00] hover:from-[#E65C00] hover:to-[#FF8C00] text-black font-bold"
+            >
+              <Zap className="w-4 h-4 mr-2" />
+              Generate My System
+            </Button>
+            <p className="text-xs text-white/40 text-center">
+              We'll also send you our GTM transformation guide.
+            </p>
+          </form>
         </DialogContent>
       </Dialog>
     </section>
