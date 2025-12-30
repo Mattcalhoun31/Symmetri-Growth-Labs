@@ -26,8 +26,11 @@ export function Footer() {
                 className="h-24 w-auto -my-6"
               />
             </a>
-            <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
-              The autonomous Revenue Engine that unifies ABM and outbound into one living system. From chaos to Symmetri.
+            <p className="text-white/60 leading-relaxed max-w-md">
+              GTM transformation for B2B teams that are stuck, stagnant, or behind. We build self-sustaining data engines, deploy AI that sells 24/7, and train your team on the S.T.E.A.L.T.H.™ methodology—outreach that bypasses spam and sounds human.
+            </p>
+            <p className="text-white font-bold mt-4">
+              The old playbook is dead. We wrote the new one.
             </p>
           </div>
           
