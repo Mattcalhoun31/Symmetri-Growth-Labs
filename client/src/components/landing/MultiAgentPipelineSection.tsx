@@ -280,7 +280,8 @@ function ResultsDisplay({ result, onDownload }: { result: PipelineDemoResult; on
           <div>
             <p className="text-sm font-bold text-white">
               <span className="text-[#FF8C00]">Gen
-
+           };
+                
 export function MultiAgentPipelineSection() {
   const { ref, isVisible } = useScrollAnimation<HTMLElement>();
   const { toast } = useToast();
