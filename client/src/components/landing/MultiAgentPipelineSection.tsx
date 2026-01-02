@@ -166,7 +166,7 @@ function ResultsDisplay({ result, onDownload }: { result: PipelineDemoResult; on
              <span className="text-[10px] text-[#FFE5B4] font-bold tracking-wider uppercase">KEY TRIGGERS</span>
              <div className="flex flex-wrap gap-2 mt-3">
                {result.research.keyTriggers.slice(0, 2).map((trigger, i) => (
-                 <Badge key={i} className="bg-gradient-to-r from-[#FF8C00] to-[#E65C00] text-white text-xs font-bold px-3 py-1.5 border-0">
+                 <div className="p-6 rounded-xl bg-[#0a0a0a] border border-[#FF8C00]/30 overflow-hidden">
                   {trigger}
                  </Badge>
                ))}
@@ -177,7 +177,7 @@ function ResultsDisplay({ result, onDownload }: { result: PipelineDemoResult; on
               <span className="text-[10px] text-[#FF8C00] font-bold tracking-wider">PAIN POINTS</span>
               <div className="flex flex-wrap gap-2 mt-2">
                 {result.research.painPoints.slice(0, 3).map((pain, i) => (
-                  <Badge key={i} className="bg-white/5 border border-white/20 text-white/70 text-[10px]">
+                  <Badge key={i} className="bg-gradient-to-r from-[#FF8C00] to-[#E65C00] text-white text-xs font-bold px-3 py-1.5 border-0 whitespace-normal text-left">
                     {pain}
                   </Badge>
                 ))}
