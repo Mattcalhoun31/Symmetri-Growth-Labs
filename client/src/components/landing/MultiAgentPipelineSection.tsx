@@ -148,7 +148,7 @@ function ResultsDisplay({ result, onDownload }: { result: PipelineDemoResult; on
   return (
     <div className="mt-8 space-y-6">
       <div className="grid lg:grid-cols-2 gap-6">
-        <div className="p-6 rounded-xl bg-[#0a0a0a] border border-[#FF8C00]/30">
+        <div className="p-6 rounded-xl bg-[#0a0a0a] border border-[#FF8C00]/30 overflow-hidden">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
               <Brain className="w-5 h-5 text-[#FF8C00]" />
@@ -163,21 +163,21 @@ function ResultsDisplay({ result, onDownload }: { result: PipelineDemoResult; on
           
           <div className="space-y-4">
             <div>
-             <span className="text-[10px] text-[#FFE5B4] font-bold tracking-wider uppercase">KEY TRIGGERS</span>
-             <div className="flex flex-wrap gap-2 mt-3">
-               {result.research.keyTriggers.slice(0, 2).map((trigger, i) => (
-                 <div className="p-6 rounded-xl bg-[#0a0a0a] border border-[#FF8C00]/30 overflow-hidden">
-                  {trigger}
-                 </Badge>
-               ))}
-             </div>
-           </div>
+              <span className="text-[10px] text-[#FFE5B4] font-bold tracking-wider uppercase">KEY TRIGGERS</span>
+              <div className="flex flex-wrap gap-2 mt-3">
+                {result.research.keyTriggers.slice(0, 2).map((trigger, i) => (
+                  <Badge key={i} className="bg-gradient-to-r from-[#FF8C00] to-[#E65C00] text-white text-xs font-bold px-3 py-1.5 border-0">
+                    {trigger}
+                  </Badge>
+                ))}
+              </div>
+            </div>
             
             <div>
               <span className="text-[10px] text-[#FF8C00] font-bold tracking-wider">PAIN POINTS</span>
               <div className="flex flex-wrap gap-2 mt-2">
                 {result.research.painPoints.slice(0, 3).map((pain, i) => (
-                  <Badge key={i} className="bg-gradient-to-r from-[#FF8C00] to-[#E65C00] text-white text-xs font-bold px-3 py-1.5 border-0 whitespace-normal text-left">
+                  <Badge key={i} className="bg-white/5 border border-white/20 text-white/70 text-[10px]">
                     {pain}
                   </Badge>
                 ))}
@@ -279,23 +279,7 @@ function ResultsDisplay({ result, onDownload }: { result: PipelineDemoResult; on
           <CheckCircle className="w-6 h-6 text-[#FF8C00]" />
           <div>
             <p className="text-sm font-bold text-white">
-              <span className="text-[#FF8C00]">Generated in 3 seconds.</span> Your SDRs spend 45+ minutes per prospect.
-            </p>
-            <p className="text-xs text-white/50">All outputs are STEALTH™ certified and ready to use immediately.</p>
-          </div>
-        </div>
-        <Button 
-         onClick={onDownload}
-         className="bg-gradient-to-r from-[#FF8C00] to-[#E65C00] hover:from-[#E65C00] hover:to-[#FF8C00] text-black font-bold px-12 py-6 text-lg gap-3 shadow-lg shadow-[#FF8C00]/50"
-          data-testid="button-download-pack"
-        >
-         <Download className="w-6 h-6" />
-          Download Full Pack
-        </Button>
-      </div>
-    </div>
-  );
-}
+              <span className="text-[#FF8C00]">Gen
 
 export function MultiAgentPipelineSection() {
   const { ref, isVisible } = useScrollAnimation<HTMLElement>();
