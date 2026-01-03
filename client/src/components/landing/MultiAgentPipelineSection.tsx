@@ -603,7 +603,4 @@ Contact: ${email}
     </section>
   );
 }
-            </div>
-            <div className="p-3 rounded-lg bg-white/5 border border-white/10">
-              <span className="text-[10px] text-[#FF8C00] font-bold block mb-1">BRIDGE</span>
-              <p className="text-[11px] text-white/70 leading-relaxed">{result.stealthScr
+        
