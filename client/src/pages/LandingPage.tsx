@@ -9,9 +9,7 @@ import { RevenueOSSection } from "@/components/landing/RevenueOSSection";
 import { TimelineSection } from "@/components/landing/TimelineSection";
 import { StrikeChainSection } from "@/components/landing/StrikeChainSection";
 import { DataEngineSection } from "@/components/landing/DataEngineSection";
-import { VoiceAISection } from "@/components/landing/VoiceAISection";
 import { ComparisonSection } from "@/components/landing/ComparisonSection";
-import { RevenueSimulator } from "@/components/landing/RevenueSimulator";
 import { PartnersSection } from "@/components/landing/PartnersSection";
 import { CTASection } from "@/components/landing/CTASection";
 import { Footer } from "@/components/landing/Footer";
@@ -26,38 +24,36 @@ export default function LandingPage() {
   const [demoModalOpen, setDemoModalOpen] = useState(false);
   const [modalSource, setModalSource] = useState("cta");
   const { trackPageView, trackCTAClick, trackDemoModalOpen, trackDemoModalClose } = useAnalytics();
-
-  // Track scroll depth and time on page
+  
   useScrollDepthTracking();
   useTimeOnPageTracking();
-
-  // Track page view on mount
+  
   useEffect(() => {
     trackPageView();
   }, [trackPageView]);
-
+  
   const openDemoModal = useCallback((source: string) => {
     setModalSource(source);
     setDemoModalOpen(true);
     trackDemoModalOpen(source);
     trackCTAClick("book_demo", source);
   }, [trackDemoModalOpen, trackCTAClick]);
-
+  
   const handleModalClose = useCallback((open: boolean) => {
     if (!open) {
       trackDemoModalClose(false);
     }
     setDemoModalOpen(open);
   }, [trackDemoModalClose]);
-
-  const scrollToSimulator = useCallback(() => {
-    trackCTAClick("run_simulation", "hero");
-    const element = document.querySelector('[data-testid="revenue-simulator-section"]');
+  
+  const scrollToDemo = useCallback(() => {
+    trackCTAClick("see_demo", "hero");
+    const element = document.querySelector('[data-testid="multi-agent-pipeline-section"]');
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
   }, [trackCTAClick]);
-
+  
   const scrollToOS = useCallback(() => {
     trackCTAClick("see_os", "hero");
     const element = document.querySelector('[data-testid="revenue-os-section"]');
@@ -65,7 +61,7 @@ export default function LandingPage() {
       element.scrollIntoView({ behavior: "smooth" });
     }
   }, [trackCTAClick]);
-
+  
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <GridBackground />
@@ -73,19 +69,17 @@ export default function LandingPage() {
       
       <main className="relative z-10">
         <HeroSection 
-          onCalculatorClick={scrollToSimulator} 
-          onDemoClick={scrollToOS} 
+          onCalculatorClick={scrollToDemo} 
+          onDemoClick={scrollToDemo} 
         />
         <AIParadoxSection />
         <GTMCollapseSection />
+        <MultiAgentPipelineSection />
         <RevenueOSSection />
         <StrikeChainSection />
         <DataEngineSection />
-        <VoiceAISection />
         <ComparisonSection />
-        <MultiAgentPipelineSection />
         <TimelineSection />
-        <RevenueSimulator />
         <PartnersSection />
         <CTASection 
           onBookSession={() => openDemoModal("cta")} 
